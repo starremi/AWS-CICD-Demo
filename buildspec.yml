@@ -1,0 +1,25 @@
+phases:
+  install:
+    commands:
+      - echo "No dependencies required"
+
+  pre_build:
+    commands:
+      - echo "Running validation"
+      - test -f index.html
+
+  build:
+    commands:
+      - echo "Building website"
+      - mkdir -p output
+      - cp index.html output/index.html
+
+  post_build:
+    commands:
+      - echo "Build completed successfully"
+
+artifacts:
+  base-directory: output
+  files:
+    - '**/*'
+
